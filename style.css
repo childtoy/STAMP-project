@@ -29,3 +29,6 @@ body .intro h1,body .intro h2{font-weight:600!important}
 
 .institution-logos{display:flex;align-items:center;justify-content:center;gap:48px;margin:28px auto}.ku-mark{display:block;width:67px;height:90px;overflow:hidden;flex:none}.ku-mark img{display:block;width:156px;height:auto;max-width:none}.robotis-mark{display:flex;align-items:center;justify-content:center}.robotis-mark img{display:block;width:148px;height:auto;filter:brightness(0)}
 @media(max-width:760px){.institution-logos{gap:36px;margin:24px auto}.robotis-mark img{width:132px}}
+
+#compilations{padding-top:58px;padding-bottom:58px;border-bottom:1px solid var(--line)}
+@media(max-width:760px){#compilations{padding-top:42px;padding-bottom:42px}}
