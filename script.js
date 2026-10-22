@@ -1,6 +1,6 @@
 const clips = [
  ['scenario-boxing','Boxing','Ready stance → Light jog → Lateral footwork → Advancing jab → Hook → Defensive crouch → Hook → Advancing jab','hardware'],
- ['scenario-speech','Keynote speech','Walk onstage → Greet the audience → Explain with gestures → Walk and present → Point to the screen → Closing bow','hardware'],
+ ['scenario-speech','Keynote speech','Walk onstage → Greet the audience → Explain with gestures → Walk and present → Point to the screen','hardware'],
  ['scenario-traffic','Traffic control','Patrol → Scan while walking → Stop signal → Check the opposite direction → Direct traffic → Step back cautiously → Lateral footwork → Ready stance','hardware'],
  ['scenario-exploration','Exploration','Ready stance → Spot a clue → Crouch to inspect → Check a second clue → Point and compare → Identify a target → Move forward','hardware'],
  ['rank1','Alignment candidate · Rank 1','Lowest predicted transition cost in this qualitative candidate set.','alignment'],
