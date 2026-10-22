@@ -5,7 +5,7 @@ const clips = [
  ['scenario-exploration','Exploration','Ready stance → Spot a clue → Crouch to inspect → Check a second clue → Point and compare → Identify a target → Move forward','hardware'],
  ['boxing','Boxing','Different sequences composed from the same motion primitives.','compilation'],
  ['traffic','Traffic Control I','Different sequences composed from the same motion primitives.','compilation'],
- ['traffic-alt','Traffic Control II','Additional sequences composed from the same motion primitives.','compilation'],
+ ['traffic-alt','Traffic Control II','Different sequences composed from the same motion primitives.','compilation'],
  ['rank1','Alignment candidate · Rank 1','Lowest predicted transition cost in this qualitative candidate set.','alignment'],
  ['rank50','Alignment candidate · Rank 50','An alternative position, heading, and transition duration.','alignment'],
  ['rank200','Alignment candidate · Rank 200','Explore the motion generated under a different boundary arrangement.','alignment'],
