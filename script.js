@@ -3,7 +3,6 @@ const clips = [
  ['scenario-speech','Keynote speech','Walk onstage → Greet the audience → Explain with gestures → Walk and present → Point to the screen → Closing bow','hardware'],
  ['scenario-traffic','Traffic control','Patrol → Scan while walking → Stop signal → Check the opposite direction → Direct traffic → Step back cautiously → Lateral footwork → Ready stance','hardware'],
  ['scenario-exploration','Exploration','Ready stance → Spot a clue → Crouch to inspect → Check a second clue → Point and compare → Identify a target → Move forward','hardware'],
- ['scenario-inspection','Factory inspection','Ready stance → Approach the workstation → Press the emergency button → Inspect the panel → Crouch to inspect machinery → Turn the valve → Step back and check','hardware'],
  ['rank1','Alignment candidate · Rank 1','Lowest predicted transition cost in this qualitative candidate set.','alignment'],
  ['rank50','Alignment candidate · Rank 50','An alternative position, heading, and transition duration.','alignment'],
  ['rank200','Alignment candidate · Rank 200','Explore the motion generated under a different boundary arrangement.','alignment'],
