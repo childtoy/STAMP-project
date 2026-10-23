@@ -17,5 +17,31 @@ function card([id,title,description,category]) {
 }
 clips.forEach(c=>document.querySelector(c[3]==='alignment'?'#alignment-clips':c[3]==='compilation'?'#compilation-clips':'#clips').append(card(c)));
 [['to-human','Robot → Human','Transfer the input robot motion to the shared human rig.',''],['rank1','Generated human transition','Generate the connecting motion in human space under the selected alignment.',''],['to-robot','Human → Robot','Transfer the completed human-space sequence back to the robot.','']].forEach(c=>document.querySelector('#retargeting').append(card(c)));
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)entry.target.pause();}),{threshold:0.05});
-document.querySelectorAll('video').forEach(v=>observer.observe(v));
+const mainVideo=document.querySelector('.hero-video');
+const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+const visibleDemos=new Set();
+const manuallyPaused=new WeakSet();
+function startDemo(video){
+ if(document.hidden||reducedMotion.matches||manuallyPaused.has(video))return;
+ video.muted=true;
+ video.play().catch(()=>{});
+}
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+ const video=entry.target;
+ if(video===mainVideo){if(!entry.isIntersecting)video.pause();return;}
+ if(entry.isIntersecting&&entry.intersectionRatio>=0.35){visibleDemos.add(video);startDemo(video);}
+ else{visibleDemos.delete(video);video.pause();}
+}),{threshold:[0,0.35]});
+document.querySelectorAll('video').forEach(video=>{
+ if(video!==mainVideo){
+  video.muted=true;
+  video.addEventListener('pause',()=>{if(visibleDemos.has(video)&&!document.hidden&&!video.ended)manuallyPaused.add(video);});
+  video.addEventListener('play',()=>manuallyPaused.delete(video));
+ }
+ observer.observe(video);
+});
+document.addEventListener('visibilitychange',()=>{
+ if(document.hidden)document.querySelectorAll('video').forEach(video=>video.pause());
+ else visibleDemos.forEach(startDemo);
+});
+document.querySelector('.actions a[href="#film"]')?.addEventListener('click',()=>{mainVideo?.play().catch(()=>{});});
