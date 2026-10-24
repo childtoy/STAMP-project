@@ -28,12 +28,11 @@ function startDemo(video){
 }
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
  const video=entry.target;
- if(video===mainVideo){if(!entry.isIntersecting)video.pause();return;}
  if(entry.isIntersecting&&entry.intersectionRatio>=0.35){visibleDemos.add(video);startDemo(video);}
  else{visibleDemos.delete(video);video.pause();}
 }),{threshold:[0,0.35]});
 document.querySelectorAll('video').forEach(video=>{
- if(video!==mainVideo){
+ {
   video.muted=true;
   video.addEventListener('pause',()=>{if(visibleDemos.has(video)&&!document.hidden&&!video.ended)manuallyPaused.add(video);});
   video.addEventListener('play',()=>manuallyPaused.delete(video));
@@ -44,4 +43,3 @@ document.addEventListener('visibilitychange',()=>{
  if(document.hidden)document.querySelectorAll('video').forEach(video=>video.pause());
  else visibleDemos.forEach(startDemo);
 });
-document.querySelector('.actions a[href="#film"]')?.addEventListener('click',()=>{mainVideo?.play().catch(()=>{});});
